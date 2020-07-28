@@ -5,8 +5,10 @@
 First, run the development server:
 
 ```bash
+npm install
 npm run dev
 # or
+yarn install
 yarn dev
 ```
 
@@ -14,5 +16,5 @@ yarn dev
 
 | Variable | Description | Default Value |
 |--|--|--|
-| SECRET_KEY | | `` |
-| PUBLIC_KEY | | `` |
+| SECRET_KEY | Stripe Secret Key | `` |
+| PUBLIC_KEY | Stripe Public Key | `` |
