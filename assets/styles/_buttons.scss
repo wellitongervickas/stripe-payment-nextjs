@@ -1,0 +1,12 @@
+@import './variables';
+
+.btn-success {
+  background-color: $color-primary;
+
+  padding: 0.6rem 1.6rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+
+  color: #ffffff
+}

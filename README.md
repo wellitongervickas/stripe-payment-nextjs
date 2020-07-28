@@ -18,3 +18,4 @@ yarn dev
 |--|--|--|
 | SECRET_KEY | Stripe Secret Key | `` |
 | PUBLIC_KEY | Stripe Public Key | `` |
+| APP_URL |  | `http://localhost:3000` |

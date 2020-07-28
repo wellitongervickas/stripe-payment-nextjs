@@ -1,0 +1,22 @@
+.products-title {
+  padding: 2rem 0;
+}
+
+.products-list {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media screen and (max-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: 720px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  @media screen and (max-width: 540px) {
+    grid-template-columns: 1fr;
+  }
+}

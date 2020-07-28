@@ -1,18 +1,14 @@
-import Link from 'next/link';
-import Head from 'next/head';
 import React from 'react';
+import Head from 'next/head';
 import Stripe from 'stripe';
-
-import Product from '../components/Product';
-import Container from '../components/Container';
-
 import {  GetStaticProps } from 'next';
 
-import stripe from '../config/stripe';
+import Product from '../components/Product';
 
+import { stripe } from '../config/stripe';
 interface Props {
-    products: Stripe.Product[]
-    prices: Stripe.Price[]
+  products: Stripe.Product[]
+  prices: Stripe.Price[]
 }
 
 const HomeView: React.FC<Props> = ({ products, prices }) => {
@@ -20,45 +16,38 @@ const HomeView: React.FC<Props> = ({ products, prices }) => {
 
   return (
     <>
-        <Head>
-            <title>Stripe Products</title>
-        </Head>
-        <section>
-            <main>
-              <Container>
-                <h1>Sripe Products</h1>
-                <div>
-                  {products.map(product => (
-                    <Link 
-                      href={product.id}
-                      key={product.id}
-                    >
-                      <a>
-                        <Product 
-                          product={product}
-                          price={getProductPrice(product.id)}
-                        />
-                      </a>
-                    </Link>
-                  ))}
-                </div>
-              </Container>
-            </main>
-        </section>
+      <Head>
+        <title>Stripe Products</title>
+      </Head>
+      <section>
+        <main>
+          <h1 className="products-title">Sripe Products</h1>
+          <div className="products-list">
+            {products.map(product => (
+              <Product
+                key={product.id}
+                product={product}
+                price={getProductPrice(product.id)}
+                showDetails={true}
+              />
+            ))}
+          </div>
+        </main>
+      </section>
     </>
-)
+  )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const { data: products } = await stripe.products.list();
-    const { data: prices } = await stripe.prices.list();
+  const { data: products } = await stripe.products.list();
+  const { data: prices } = await stripe.prices.list();
 
-    return {
-        props: {
-            prices,
-            products,
-        },
-    };
+  return {
+    props: {
+      prices,
+      products,
+    },
+  };
 }
 
 export default HomeView;
