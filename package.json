@@ -12,7 +12,7 @@
   "dependencies": {
     "@stripe/stripe-js": "^1.8.0",
     "dotenv": "^8.2.0",
-    "next": "9.5.0",
+    "next": "11.1.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "sass": "^1.26.10",
